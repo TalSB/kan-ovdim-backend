@@ -1,5 +1,5 @@
 const express = require("express");
-const { getProjects } = require("../controllers/project.controller");
+const projectController = require("../controllers/project.controller");
 
 const router = express.Router();
 
@@ -9,6 +9,8 @@ const router = express.Router();
 // router.post("/googleLogin", googleLogin);
 // router.get("/loggedinUser", getLoggedinUser);
 
-router.get("/", getProjects);
+router.get("/", projectController.getProjects);
+router.post("/", projectController.addProject);
+router.put("/", projectController.updateProject);
 
 module.exports = router;

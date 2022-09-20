@@ -5,7 +5,9 @@ module.exports = {
 };
 
 // Database Name
-const dbName = "board_db";
+const dbName = "KanOvdim";
+
+const dbURL = "mongodb+srv://talkoosh:209323492Tal@cluster0.rxry5xm.mongodb.net/?retryWrites=true&w=majority";
 
 var dbConn = null;
 
