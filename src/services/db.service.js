@@ -1,5 +1,5 @@
 const MongoClient = require("mongodb").MongoClient;
-
+const config = require("../../config");
 module.exports = {
   getCollection,
 };
@@ -7,7 +7,7 @@ module.exports = {
 // Database Name
 const dbName = "KanOvdim";
 
-const dbURL = "mongodb+srv://talkoosh:209323492Tal@cluster0.rxry5xm.mongodb.net/?retryWrites=true&w=majority";
+const { dbUrl } = config;
 
 var dbConn = null;
 
