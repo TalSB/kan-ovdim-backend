@@ -1,8 +1,10 @@
 const dbService = require("./db.service");
 
-const collection = "employee";
+const collectionName = "employee";
 
-const getEmployees = async (filter) => {};
+const getEmployees = async (filter) => {
+    const collection = await dbService.getCollection(collectionName)
+};
 
 const updateEmployee = async (updatedEmployee) => {};
 
