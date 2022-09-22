@@ -6,8 +6,7 @@ module.exports = {
 
 // Database Name
 const dbName = "KanOvdim";
-
-const { dbUrl } = config;
+const { dbURL } = config;
 
 var dbConn = null;
 
