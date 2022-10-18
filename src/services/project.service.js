@@ -37,4 +37,13 @@ const updateProject = async (updatedProject) => {
   }
 };
 
-module.exports = { getProjects, addProject, updateProject };
+const deleteProject = async (projectId) => {
+  try {
+    const id = ObjectId(projectId);
+    const collection = await dbService.getCollection(collectionName);
+    await collection.deleteOne({ _id: id });
+  } catch (error) {
+    throw error;
+  }
+};
+module.exports = { getProjects, addProject, updateProject, deleteProject };

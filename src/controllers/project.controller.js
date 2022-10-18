@@ -30,8 +30,19 @@ const updateProject = async (req, res) => {
   }
 };
 
+const deleteProject = async (req, res) => {
+  try {
+    const { projectId } = req.params;
+    await projectService.deleteProject(projectId);
+    res.send("");
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
 module.exports = {
   getProjects,
   addProject,
   updateProject,
+  deleteProject,
 };
