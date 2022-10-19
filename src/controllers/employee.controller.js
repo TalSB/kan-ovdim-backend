@@ -10,6 +10,29 @@ const getEmployees = async (req, res) => {
   }
 };
 
+const addEmployee = async (req, res) => {
+  try {
+    const { newEmployee } = req.body;
+    newEmployee.occuppiedFrom = null;
+    newEmployee.occuppiedUntil = null;
+    newEmployee.isOccuppiedChanged = false;
+    await employeeService.addEmployee(newEmployee);
+    res.send("");
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
+const deleteEmployee = async (req, res) => {
+  try {
+    const { employeeId } = req.params;
+    await employeeService.deleteEmployee(employeeId);
+    res.send("");
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
 const updateEmployee = async (req, res) => {
   try {
     const { updatedEmployee } = req.body;
@@ -20,4 +43,4 @@ const updateEmployee = async (req, res) => {
   }
 };
 
-module.exports = { getEmployees, updateEmployee };
+module.exports = { getEmployees, updateEmployee, addEmployee, deleteEmployee };

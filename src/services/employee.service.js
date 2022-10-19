@@ -13,6 +13,25 @@ const getEmployees = async (filter) => {
   }
 };
 
+const addEmployee = async (newEmployee) => {
+  try {
+    const collection = await dbService.getCollection(collectionName);
+    await collection.insertOne(newEmployee);
+  } catch (error) {
+    throw error;
+  }
+};
+
+const deleteEmployee = async (employeeId) => {
+  try {
+    const id = ObjectId(employeeId);
+    const collection = await dbService.getCollection(collectionName);
+    await collection.deleteOne({ _id: id });
+  } catch (error) {
+    throw error;
+  }
+};
+
 const updateEmployee = async (updatedEmployee) => {
   try {
     const id = ObjectId(updatedEmployee._id);
@@ -25,4 +44,4 @@ const updateEmployee = async (updatedEmployee) => {
   }
 };
 
-module.exports = { getEmployees, updateEmployee };
+module.exports = { getEmployees, updateEmployee, addEmployee, deleteEmployee };

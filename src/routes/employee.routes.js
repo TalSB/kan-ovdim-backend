@@ -10,6 +10,8 @@ const router = express.Router();
 // router.get("/loggedinUser", getLoggedinUser);
 
 router.get("/", employeeController.getEmployees);
+router.post("/", employeeController.addEmployee);
 router.put("/", employeeController.updateEmployee);
+router.delete("/:employeeId", employeeController.deleteEmployee);
 
 module.exports = router;
