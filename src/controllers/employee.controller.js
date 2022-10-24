@@ -13,9 +13,9 @@ const getEmployees = async (req, res) => {
 const addEmployee = async (req, res) => {
   try {
     const { newEmployee } = req.body;
-    newEmployee.occuppiedFrom = null;
-    newEmployee.occuppiedUntil = null;
-    newEmployee.isOccuppiedChanged = false;
+    newEmployee.occupiedFrom = null;
+    newEmployee.occupiedUntil = null;
+    newEmployee.isOccupiedChanged = false;
     await employeeService.addEmployee(newEmployee);
     res.send("");
   } catch (error) {
